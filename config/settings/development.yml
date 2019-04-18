@@ -1,0 +1,3 @@
+rails:
+  database:
+    database: db/development.sqlite3

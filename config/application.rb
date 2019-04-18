@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module MokuRailsSample
   class Application < Rails::Application
+    ::Settings = Ettin.for(Ettin.settings_files(Rails.root.join('config'), Rails.env))
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

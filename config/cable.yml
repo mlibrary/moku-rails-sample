@@ -1,10 +1,13 @@
+# These settings come from settings.yml, etc. No literals should be
+# committed to this file.
+default: &default
+  adapter:        <%= Settings.rails.cable.adapter %>
+  url:            <%= Settings.rails.cable.url %>
+  channel_prefix: <%= Settings.rails.cable.channel_prefix %>
+
 development:
-  adapter: async
-
+  <<: *default
 test:
-  adapter: async
-
+  <<: *default
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: moku-rails-sample_production
+  <<: *default
